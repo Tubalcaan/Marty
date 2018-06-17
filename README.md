@@ -1,4 +1,4 @@
-<h3 align="center"><img src="navigable_logo.png" width=120></h3>
+<h3 align="center"><img src="marty_logo.png" width=120></h3>
 <br>
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-green.svg?style=flat)](https://github.com/Carthage/Carthage)
