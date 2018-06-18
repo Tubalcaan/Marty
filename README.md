@@ -25,10 +25,10 @@ Date.yesterday // returns the date of the day before now
 
 ### Past and future
 Very easy and quite useless until Date.now, but you can do much harder calculations with a smooth, simple and readable syntax.
-Let's start simple
+Let's start simple:
 ```Swift
-24.minutes.ago // returns now less 24 minutes
-2.hours.fromNow // return now plus 2 hours
+24.minutes.ago // returns now minus 24 minutes
+2.hours.fromNow // returns now plus 2 hours
 ```
 
 Let's say you're handling a date in your code (sorry for the forced unwrapping, don't do that at home, kids)
