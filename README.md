@@ -9,7 +9,56 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Version 1.0](https://img.shields.io/badge/release-1.0-ff69b4.svg?style=flat)]()
 
 # Marty
-Marty helps you travel backward and forward in time when using Dates.
+Marty helps you travel backward and forward in time when using Dates in your applications.
+
+The idea is to provide a light set of APIs that allow you to add and substract a date interval to the date you're manipulating.
+By doing this, you get a new date that has been shifted to past or future.
+
+### Getting easy dates
+You can easily get common dates
+
+```Swift
+Date.now // returns a date equivalent to Date()
+Date.tomorrow // returns the date of the day after now
+Date.yesterday // returns the date of the day before now
+```
+
+### Past and future
+Very easy and quite useless until Date.now, but you can do much harder calculations with a smooth, simple and readable syntax.
+Let's start simple
+```Swift
+24.minutes.ago // returns now less 24 minutes
+2.hours.fromNow // return now plus 2 hours
+```
+
+Let's say you're handling a date in your code (sorry for the forced unwrapping, don't do that at home, kids)
+
+```Swift
+let dateFormatter = DateFormatter()
+dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+let date = dateFormatter.date(from: "2018-06-20 09:30")! // happy birthday to me :)
+```
+
+You can now get dates relative to this date very easily. Let's have a few examples:
+
+```Swift
+2.days.before(date) // returns exactly what it says, ie 18th of June at 09:30 AM
+10.minutes.after(date) // returns 20th of June at 09:40 AM
+```
+
+OK, this is cool, but we can do much better:
+
+```Swift
+date - 2.months // returns 20th of April at 09:30 AM
+date + 6.years // returns 20th of June 2024 at 09:30 AM
+
+// And you can combine many units
+date + 5.months - 4.minutes // returns 20th of November at 09:26 AM, believe me or do the maths ;)
+
+// You can store the date interval in a variable and use it later
+let futureDateInterval = 2.weeks + 2.days - 30.minutes
+date + futureShift // returns 6th of July at 09:00 AM
+```
 
 <!--### 🔗 Segues are cool but... 🤔
 Segues are **very good tools** to represent visual connections between View controllers. But they have few drawbacks:
