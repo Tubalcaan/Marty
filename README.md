@@ -8,8 +8,8 @@
 [![iOS 9](https://img.shields.io/badge/iOS->=9.0-blue.svg?style=flat)](https://en.wikipedia.org/wiki/IOS_9)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Version 1.0](https://img.shields.io/badge/release-1.0-ff69b4.svg?style=flat)]()
 
-# Marty
-Marty helps you travel backward and forward in time when using Dates in your applications.
+# MARTY
+MARTY helps you travel backward and forward in time when using Dates in your applications.
 
 The idea is to provide a light set of APIs that allow you to add and substract a date interval to the date you're manipulating.
 By doing this, you get a new date that has been shifted to past or future.
