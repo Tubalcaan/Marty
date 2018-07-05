@@ -70,7 +70,13 @@ You can get a TimeInterval very easily from your date interval. It is more reada
 (60.minutes + 18.seconds).timeInterval // returns 3618
 
 // You could also do this way
-TimeInterval(60.minutes) // return 3600
+TimeInterval(60.minutes) // returns 3600
+
+// You may use it to animate UIViews
+UIView.animate(withDuration: 300.milliseconds.timeInterval) {
+    // do something
+}
+
 ```
 <!--
 # ⚙️ Installation

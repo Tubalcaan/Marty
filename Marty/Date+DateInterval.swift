@@ -58,7 +58,9 @@ public struct DateInterval {
     }
     
     public var timeInterval: TimeInterval {
-        return ceil(intervalDate(negative: false).timeIntervalSinceNow)
+        let now = Date.now
+        let interval = intervalDate(negative: false).timeIntervalSince(now)
+        return round(1000*interval)/1000
     }
 
     public func after(_ date: Date) -> Date {
@@ -132,6 +134,10 @@ public extension Int {
     
     var seconds: DateInterval {
         return DateInterval(unit: .second, value: self)
+    }
+
+    var milliseconds: DateInterval {
+        return DateInterval(unit: .nanosecond, value: self * 1000000)
     }
 }
 
