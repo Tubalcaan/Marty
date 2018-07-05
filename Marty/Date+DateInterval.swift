@@ -57,6 +57,10 @@ public struct DateInterval {
         return intervalDate(negative: false)
     }
     
+    public var timeInterval: TimeInterval {
+        return ceil(intervalDate(negative: false).timeIntervalSinceNow)
+    }
+
     public func after(_ date: Date) -> Date {
         return intervalDate(negative: false, fromDate: date)
     }
@@ -128,5 +132,11 @@ public extension Int {
     
     var seconds: DateInterval {
         return DateInterval(unit: .second, value: self)
+    }
+}
+
+public extension TimeInterval {
+    init(_ dateInterval: DateInterval) {
+        self.init(dateInterval.timeInterval)
     }
 }
