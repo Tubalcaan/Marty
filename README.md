@@ -11,7 +11,7 @@
 # MARTY
 MARTY helps you travel backward and forward in time when using Dates in your applications.
 
-The idea is to provide a light set of APIs that allow you to add and substract a date interval to the date you're manipulating.
+The idea is to provide a light set of APIs that allow you to add and substract a duration to the date you're manipulating.
 By doing this, you get a new date that has been shifted to past or future.
 
 ### Getting easy dates
@@ -56,9 +56,9 @@ date + 6.years // returns 20th of June 2024 at 09:30 AM
 // And you can combine many units
 date + 5.months - 4.minutes // returns 20th of November at 09:26 AM, believe me or do the maths ;)
 
-// You can store the date interval in a variable and use it later
-let futureDateInterval = 2.weeks + 2.days - 30.minutes
-date + futureShift // returns 6th of July at 09:00 AM
+// You can store the duration in a variable and use it later
+let futureDuration = 2.weeks + 2.days - 30.minutes
+date + futureDuration // returns 6th of July at 09:00 AM
 ```
 
 ### TimeInterval
