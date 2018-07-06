@@ -9,7 +9,6 @@
 import Foundation
 
 public extension Date {
-    
     static var now: Date {
         return Date()
     }
@@ -65,12 +64,6 @@ public struct Duration {
         return intervalDate(negative: true, fromDate: date)
     }
     
-    public var timeInterval: TimeInterval {
-        let now = Date.now
-        let interval = intervalDate(negative: false).timeIntervalSince(now)
-        return round(1000*interval)/1000
-    }
-    
     private func intervalDate(negative: Bool, fromDate originDate: Date? = nil) -> Date {
         var date = originDate ?? Date.now
         intervals.forEach { (interval: Interval) in
@@ -104,6 +97,14 @@ public struct Duration {
         duration.addIntervals(from: left)
         duration.addIntervals(from: right, negative: true)
         return duration
+    }
+}
+
+public extension Duration {
+    public var timeInterval: TimeInterval {
+        let now = Date.now
+        let interval = intervalDate(negative: false).timeIntervalSince(now)
+        return round(1000*interval)/1000
     }
 }
 
@@ -146,4 +147,5 @@ public extension TimeInterval {
         self.init(duration.timeInterval)
     }
 }
+
 
