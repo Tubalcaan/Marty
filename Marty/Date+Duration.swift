@@ -103,7 +103,7 @@ public struct Duration {
 public extension Duration {
     public var timeInterval: TimeInterval {
         let now = Date.now
-        let interval = intervalDate(negative: false).timeIntervalSince(now)
+        let interval = intervalDate(negative: false, fromDate: now).timeIntervalSince(now)
         return round(1000*interval)/1000
     }
 }
