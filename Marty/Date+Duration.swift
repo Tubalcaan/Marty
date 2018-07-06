@@ -110,11 +110,8 @@ public extension Duration {
 
 extension Duration {
     static prefix func - (duration: Duration) -> Duration {
-        let negativeIntervals = duration.intervals.map({ (interval: (unit: Calendar.Component, value: Int)) -> Interval in
-            return Interval(unit: interval.unit, value: -interval.value)
-        })
         var dur = Duration()
-        dur.intervals = negativeIntervals
+        dur.addIntervals(from: duration, negative: true)
         
         return dur
     }
