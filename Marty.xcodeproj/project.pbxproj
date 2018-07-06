@@ -10,7 +10,7 @@
 		3584AB0420D6ACD100342E3E /* Marty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3584AAFA20D6ACD100342E3E /* Marty.framework */; };
 		3584AB0920D6ACD100342E3E /* MartyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3584AB0820D6ACD100342E3E /* MartyTests.swift */; };
 		3584AB0B20D6ACD100342E3E /* Marty.h in Headers */ = {isa = PBXBuildFile; fileRef = 3584AAFD20D6ACD100342E3E /* Marty.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3584AB1520D6AD6900342E3E /* Date+DateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3584AB1420D6AD6900342E3E /* Date+DateInterval.swift */; };
+		3584AB1520D6AD6900342E3E /* Date+Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3584AB1420D6AD6900342E3E /* Date+Duration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +30,7 @@
 		3584AB0320D6ACD100342E3E /* MartyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MartyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3584AB0820D6ACD100342E3E /* MartyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartyTests.swift; sourceTree = "<group>"; };
 		3584AB0A20D6ACD100342E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3584AB1420D6AD6900342E3E /* Date+DateInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DateInterval.swift"; sourceTree = "<group>"; };
+		3584AB1420D6AD6900342E3E /* Date+Duration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Duration.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 			children = (
 				3584AAFD20D6ACD100342E3E /* Marty.h */,
 				3584AAFE20D6ACD100342E3E /* Info.plist */,
-				3584AB1420D6AD6900342E3E /* Date+DateInterval.swift */,
+				3584AB1420D6AD6900342E3E /* Date+Duration.swift */,
 			);
 			path = Marty;
 			sourceTree = "<group>";
@@ -198,7 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3584AB1520D6AD6900342E3E /* Date+DateInterval.swift in Sources */,
+				3584AB1520D6AD6900342E3E /* Date+Duration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

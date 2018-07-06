@@ -29,16 +29,16 @@ public extension Date {
         return 1.days.after(self)
     }
     
-    public static func + (left: Date, right: DateInterval) -> Date {
+    public static func + (left: Date, right: Duration) -> Date {
         return right.after(left)
     }
     
-    public static func - (left: Date, right: DateInterval) -> Date {
+    public static func - (left: Date, right: Duration) -> Date {
         return right.before(left)
     }
 }
 
-public struct DateInterval {
+public struct Duration {
     private typealias Interval = (unit: Calendar.Component, value: Int)
     private var intervals: [Interval] = []
     
@@ -57,18 +57,18 @@ public struct DateInterval {
         return intervalDate(negative: false)
     }
     
-    public var timeInterval: TimeInterval {
-        let now = Date.now
-        let interval = intervalDate(negative: false).timeIntervalSince(now)
-        return round(1000*interval)/1000
-    }
-
     public func after(_ date: Date) -> Date {
         return intervalDate(negative: false, fromDate: date)
     }
     
     public func before(_ date: Date) -> Date {
         return intervalDate(negative: true, fromDate: date)
+    }
+    
+    public var timeInterval: TimeInterval {
+        let now = Date.now
+        let interval = intervalDate(negative: false).timeIntervalSince(now)
+        return round(1000*interval)/1000
     }
     
     private func intervalDate(negative: Bool, fromDate originDate: Date? = nil) -> Date {
@@ -80,11 +80,11 @@ public struct DateInterval {
         return date
     }
     
-    mutating private func addIntervals(from otherDateInterval: DateInterval, negative: Bool = false) {
+    mutating private func addIntervals(from otherDuration: Duration, negative: Bool = false) {
         if !negative {
-            intervals += otherDateInterval.intervals
+            intervals += otherDuration.intervals
         } else {
-            let negativeIntervals = otherDateInterval.intervals.map({ (interval: (unit: Calendar.Component, value: Int)) -> Interval in
+            let negativeIntervals = otherDuration.intervals.map({ (interval: (unit: Calendar.Component, value: Int)) -> Interval in
                 return Interval(unit: interval.unit, value: -interval.value)
             })
             
@@ -92,57 +92,58 @@ public struct DateInterval {
         }
     }
     
-    static func + (left: DateInterval, right: DateInterval) -> DateInterval {
-        var dateInterval = DateInterval()
-        dateInterval.addIntervals(from: left)
-        dateInterval.addIntervals(from: right)
-        return dateInterval
+    static func + (left: Duration, right: Duration) -> Duration {
+        var duration = Duration()
+        duration.addIntervals(from: left)
+        duration.addIntervals(from: right)
+        return duration
     }
     
-    static func - (left: DateInterval, right: DateInterval) -> DateInterval {
-        var dateInterval = DateInterval()
-        dateInterval.addIntervals(from: left)
-        dateInterval.addIntervals(from: right, negative: true)
-        return dateInterval
+    static func - (left: Duration, right: Duration) -> Duration {
+        var duration = Duration()
+        duration.addIntervals(from: left)
+        duration.addIntervals(from: right, negative: true)
+        return duration
     }
 }
 
 public extension Int {
-    var years: DateInterval {
-        return DateInterval(unit: .year, value: self)
+    var years: Duration {
+        return Duration(unit: .year, value: self)
     }
     
-    var months: DateInterval {
-        return DateInterval(unit: .month, value: self)
+    var months: Duration {
+        return Duration(unit: .month, value: self)
     }
     
-    var weeks: DateInterval {
-        return DateInterval(unit: .weekOfYear, value: self)
+    var weeks: Duration {
+        return Duration(unit: .weekOfYear, value: self)
     }
     
-    var days: DateInterval {
-        return DateInterval(unit: .day, value: self)
+    var days: Duration {
+        return Duration(unit: .day, value: self)
     }
     
-    var hours: DateInterval {
-        return DateInterval(unit: .hour, value: self)
+    var hours: Duration {
+        return Duration(unit: .hour, value: self)
     }
     
-    var minutes: DateInterval {
-        return DateInterval(unit: .minute, value: self)
+    var minutes: Duration {
+        return Duration(unit: .minute, value: self)
     }
     
-    var seconds: DateInterval {
-        return DateInterval(unit: .second, value: self)
+    var seconds: Duration {
+        return Duration(unit: .second, value: self)
     }
-
-    var milliseconds: DateInterval {
-        return DateInterval(unit: .nanosecond, value: self * 1000000)
+    
+    var milliseconds: Duration {
+        return Duration(unit: .nanosecond, value: self * 1000000)
     }
 }
 
 public extension TimeInterval {
-    init(_ dateInterval: DateInterval) {
-        self.init(dateInterval.timeInterval)
+    init(_ duration: Duration) {
+        self.init(duration.timeInterval)
     }
 }
+
