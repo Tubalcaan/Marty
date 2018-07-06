@@ -108,6 +108,33 @@ public extension Duration {
     }
 }
 
+extension Duration {
+    static prefix func - (duration: Duration) -> Duration {
+        let negativeIntervals = duration.intervals.map({ (interval: (unit: Calendar.Component, value: Int)) -> Interval in
+            return Interval(unit: interval.unit, value: -interval.value)
+        })
+        var dur = Duration()
+        dur.intervals = negativeIntervals
+        
+        return dur
+    }
+}
+
+extension Duration: CustomStringConvertible {
+    public var description: String {
+        return timeInterval.description
+    }
+}
+
+extension Duration: CustomDebugStringConvertible {
+    public var debugDescription: String {
+        return intervals.map { (unit: Calendar.Component, value: Int) -> String in
+            return "\(value) \(unit)"
+            }
+            .joined(separator: " | ")
+    }
+}
+
 public extension Int {
     var years: Duration {
         return Duration(unit: .year, value: self)
@@ -147,5 +174,3 @@ public extension TimeInterval {
         self.init(duration.timeInterval)
     }
 }
-
-

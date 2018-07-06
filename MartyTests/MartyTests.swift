@@ -46,5 +46,6 @@ class MartyTests: XCTestCase {
         XCTAssert((60.minutes + 18.seconds).timeInterval == 3618, "60.minutes + 18.seconds are wrong")
         XCTAssert(TimeInterval(2.milliseconds) == 0.002, "2.milliseconds are wrong")
         XCTAssert(300.milliseconds.timeInterval == 0.3, "300.milliseconds are wrong")
+        XCTAssert(-300.milliseconds.timeInterval == -0.3, "-300.milliseconds are wrong")
     }
 }
