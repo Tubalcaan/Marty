@@ -78,13 +78,13 @@ UIView.animate(withDuration: 300.milliseconds.timeInterval) {
 }
 
 ```
-<!--
-# ⚙️ Installation
+# Installation
 ## Carthage
 To install, simply add the following lines to your Cartfile :
 ```ruby
-github "Tubalcaan/Navigable" ~> 1.2
+github "Tubalcaan/Marty" ~> 1.0
 ```
+<!--
 ## Cocoapods
 To install, simply add the following lines to your Podfile :
 ```ruby
